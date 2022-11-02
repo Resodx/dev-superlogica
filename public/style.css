@@ -1,0 +1,37 @@
+html,
+body {
+    /* background-color: #555555; */
+    background-color: #F7F7F7;
+    min-width: 576px;
+}
+
+
+#content {
+    margin-top: 4rem;
+}
+
+.fa-book-open {
+    color: #007bff;
+}
+
+.form-control:focus {
+    border-color: rgba(70, 85, 250, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 4px #007bff;
+    outline: 0 none;
+}
+
+.form-control:valid {
+    border: 2px solid #007bff;
+    border-radius: 4px;
+}
+
+.form-control:invalid:focus {
+    border-color: red;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 4px red;
+    outline: 0 none;
+}
+
+.form-control:invalid {
+    border: 2px solid red;
+    border-radius: 4px;
+}

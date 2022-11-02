@@ -1,0 +1,108 @@
+<div>
+    <form action="http://localhost/user/add" method="post" enctype="application/x-www-form-urlencoded" id="form">
+        <div class="form-group">
+            <div>
+                <label for="name">Nome completo:</label>
+                <input class="form-control" required maxlength="255" type="text" id="name" name="name">
+            </div>
+            <div>
+                <label for="userName">Nome de login:</label>
+                <input class="form-control" required maxlength="255" type="text" id="userName" name="userName">
+            </div>
+            <div>
+                <label for="zipCode">CEP</label>
+                <input class="form-control" required minlength="8" maxlength="8" type="text" id="zipCode" name="zipCode">
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input class="form-control" required maxlength="255" type="text" id="email" name="email">
+            </div>
+            <div>
+                <label for="password">Senha (8 caracteres mínimo, contendo pelo menos 1 letra
+                    e 1 número):</label>
+                <input class="form-control" required minlength="8" maxlength="255" type="password" id="password" name="password">
+            </div>
+            <div class="col-12 mt-4 text-center">
+                <input class="btn btn-primary" type="submit" value="Cadastrar" onclick="return validateForm()">
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#zipCode').mask('00000-000');
+    });
+
+    function validatePassword() {
+        var password = document.getElementById("password").value;
+        var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        if (passwordRegex.test(password)) {
+            return true;
+        } else {
+            alert("Senha inválida! A senha deve conter pelo menos 8 caracteres, sendo pelo menos 1 letra e 1 número.");
+            return false;
+        }
+    }
+
+    function validateEmail() {
+        var email = document.getElementById("email").value;
+        var emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        if (emailRegex.test(email)) {
+            return true;
+        } else {
+            alert("Email inválido!");
+            return false;
+        }
+    }
+
+    function validateZipCode() {
+        var zipCode = document.getElementById("zipCode").value;
+        var zipCodeRegex = /^\d{5}-\d{3}$/;
+        if (zipCodeRegex.test(zipCode)) {
+            return true;
+        } else {
+            alert("CEP inválido!");
+            return false;
+        }
+    }
+
+    function validateForm() {
+        if (validateZipCode() && validateEmail() && validatePassword()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    $("#form").submit(function(e) {
+
+        $('#zipCode').unmask();
+        e.preventDefault();
+
+        var form = $(this);
+        var actionUrl = form.attr('action');
+        var method = form.attr('method');
+
+        let p1 = $.ajax({
+            type: method,
+            url: actionUrl,
+            data: form.serialize(),
+            error: function(data) {
+                $('#zipCode').mask('00000-000');
+                alert("Erro ao cadastrar usuário!");
+            }
+        });
+
+        p1.then((data) => {
+            if (data.success) {
+                alert("Usuário cadastrado com sucesso!");
+                window.location.href = "http://localhost/user/list";
+            } else {
+                $('#zipCode').mask('00000-000');
+                alert("Erro ao cadastrar usuário!");
+            }
+        });
+
+    });
+</script>

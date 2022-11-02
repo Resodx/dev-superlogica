@@ -1,0 +1,5 @@
+.dockerignore
+.phpunit.result.cache
+/vendor
+/.vscode
+composer.lock

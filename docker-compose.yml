@@ -1,0 +1,65 @@
+services:
+
+  #PHP Service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #    image: digitalocean.com/php
+    container_name: superlogicatest
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./:/var/www
+    working_dir: /var/www
+    networks:
+      - superlogicatest
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  #Nginx Service
+  webserver:
+    image: nginx:1.23.1-alpine
+    container_name: superlogicatest-nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - superlogicatest
+    extra_hosts:
+          - "host.docker.internal:host-gateway"
+
+  #MySQL Service
+  mariadb:
+    image: mariadb:latest
+    container_name: superlogicatest_mariadb
+    restart: unless-stopped
+    ports:
+      - '3306:3306'
+    environment:
+      MARIADB_ROOT_PASSWORD: '${DB_PASSWORD}'
+      MARIADB_ROOT_HOST: "%"
+      MARIADB_DATABASE: '${DB_DATABASE}'
+      MARIADB_USER: '${DB_USERNAME}'
+      MARIADB_PASSWORD: '${DB_PASSWORD}'
+      MARIADB_ALLOW_EMPTY_PASSWORD: 1
+    volumes:
+      - ./docker-compose/mariadb:/docker-entrypoint-initdb.d
+    networks:
+      - superlogicatest
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}" ]
+      retries: 3
+      timeout: 5s
+
+#Docker Networks
+networks:
+  superlogicatest:
+    driver: bridge
+volumes:
+  superlogica:
+    driver: local
