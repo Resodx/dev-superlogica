@@ -5,7 +5,7 @@ namespace App\Model;
 use Framework\MVC\Model\AbstractModel;
 use App\Connection;
 
-class Category extends AbstractModel
+class Usuario extends AbstractModel
 {
 
     protected function populate()
@@ -15,11 +15,12 @@ class Category extends AbstractModel
             $this->conn = new Connection();
         }
 
-        $this->table = "categories";
+        $this->table = "usuario";
         $this->primary_key = "id";
         $this->columns = [
-            "id",
-            "name"
+            "nome",
+            "cpf",
+            "id"
         ];
     }
 }

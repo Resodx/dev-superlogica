@@ -5,7 +5,7 @@ namespace App\Model;
 use Framework\MVC\Model\AbstractModel;
 use App\Connection;
 
-class User extends AbstractModel
+class Account extends AbstractModel
 {
 
     protected function populate()
@@ -15,7 +15,7 @@ class User extends AbstractModel
             $this->conn = new Connection();
         }
 
-        $this->table = "user";
+        $this->table = "account";
         $this->primary_key = "id";
         $this->columns = [
             "name",

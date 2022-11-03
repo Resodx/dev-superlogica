@@ -1,0 +1,68 @@
+<div class="col-md-12 mx-auto" style="max-width: 800px;">
+    <div>
+        <h2>Exercício 3</h2>
+        <div>
+            <h5>USUARIO</h5>
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">cpf</th>
+                        <th scope="col">nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($this->view->allUsuarios as $usuario) : ?>
+                        <tr>
+                            <th scope="row"><?= $usuario['id'] ?></th>
+                            <td><?= $usuario['cpf'] ?></td>
+                            <td><?= $usuario['nome'] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h5>INFO</h5>
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">cpf</th>
+                        <th scope="col">genero</th>
+                        <th scope="col">ano_nascimento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($this->view->allInfos as $info) : ?>
+                        <tr>
+                            <th scope="row"><?= $info['id'] ?></th>
+                            <td><?= $info['cpf'] ?></td>
+                            <td><?= $info['genero'] ?></td>
+                            <td><?= $info['ano_nascimento'] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h5>Tabela de resultado esperado</h5>
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">usuário</th>
+                        <th scope="col">maior_50_anos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($this->view->selectedUsuarios as $usuario) : ?>
+                        <tr>
+                            <th scope="row"><?= $usuario['usuario'] ?></th>
+                            <td><?= $usuario['maior_50_anos'] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

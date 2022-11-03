@@ -10,75 +10,120 @@ class Router extends AbstractRouter
     protected function initRoutes()
     {
         $routes = array(
-            'swagger' => array(
-                'route' => '/swagger',
-                'controller' => 'App\\Controller\\SwaggerController',
-                'action' => 'actionSwagger'
-            ),
-            'listCategory' => array(
-                'route' => '/category/list',
-                'controller' => 'App\\Controller\\Categories\\CategoryController',
-                'model' => 'App\\Model\\Category',
-                'action' => 'actionList'
-            ),
-            'addCategory' => array(
-                'route' => '/category/add',
-                'controller' => 'App\\Controller\\Categories\\CategoryController',
-                'model' => 'App\\Model\\Category',
-                'action' => 'actionAdd'
-            ),
-            'removeCategory' => array(
-                'route' => '/category/remove',
-                'controller' => 'App\\Controller\\Categories\\CategoryController',
-                'model' => 'App\\Model\\Category',
-                'action' => 'actionRemove'
-            ),
-            'updateCategory' => array(
-                'route' => '/category/update',
-                'controller' => 'App\\Controller\\Categories\\CategoryController',
-                'model' => 'App\\Model\\Category',
-                'action' => 'actionUpdate'
-            ),
-            'searchCategory' => array(
-                'route' => '/category/search',
-                'controller' => 'App\\Controller\\Categories\\CategoryController',
-                'model' => 'App\\Model\\Category',
-                'action' => 'actionSearch'
-            ),
-            'listUser' => array(
-                'route' => '/user/list',
-                'controller' => 'App\\Controller\\UserController',
-                'model' => 'App\\Model\\User',
-                'action' => 'actionList'
-            ),
-            'addUser' => array(
-                'route' => '/user/add',
-                'controller' => 'App\\Controller\\UserController',
-                'model' => 'App\\Model\\User',
-                'action' => 'actionAdd'
-            ),
-            'removeUser' => array(
-                'route' => '/user/remove',
-                'controller' => 'App\\Controller\\UserController',
-                'model' => 'App\\Model\\User',
-                'action' => 'actionRemove'
-            ),
-            'updateUser' => array(
-                'route' => '/user/update',
-                'controller' => 'App\\Controller\\UserController',
-                'model' => 'App\\Model\\User',
-                'action' => 'actionUpdate'
-            ),
-            'searchUser' => array(
-                'route' => '/user/search',
-                'controller' => 'App\\Controller\\UserController',
-                'model' => 'App\\Model\\User',
-                'action' => 'actionSearch'
+            'home' => array(
+                'route' => '/',
+                'controller' => 'App\\Controller\\Pages\\HomeController',
+                'action' => 'actionHome'
             ),
             'ex1' => array(
                 'route' => '/ex1',
                 'controller' => 'App\\Controller\\Pages\\Ex1Controller',
                 'action' => 'actionEx1'
+            ),
+            'ex2' => array(
+                'route' => '/ex2',
+                'controller' => 'App\\Controller\\Pages\\Ex2Controller',
+                'action' => 'actionEx2'
+            ),
+            'ex3' => array(
+                'route' => '/ex3',
+                'controller' => 'App\\Controller\\Pages\\Ex3Controller',
+                'action' => 'actionEx3'
+            ),
+            'swagger' => array(
+                'route' => '/swagger',
+                'controller' => 'App\\Controller\\SwaggerController',
+                'action' => 'actionSwagger'
+            ),
+            'listAccount' => array(
+                'route' => '/account/list',
+                'controller' => 'App\\Controller\\Api\\AccountController',
+                'model' => 'App\\Model\\Account',
+                'action' => 'actionList'
+            ),
+            'addAccount' => array(
+                'route' => '/account/add',
+                'controller' => 'App\\Controller\\Api\\AccountController',
+                'model' => 'App\\Model\\Account',
+                'action' => 'actionAdd'
+            ),
+            'removeAccount' => array(
+                'route' => '/account/remove',
+                'controller' => 'App\\Controller\\Api\\AccountController',
+                'model' => 'App\\Model\\Account',
+                'action' => 'actionRemove'
+            ),
+            'updateAccount' => array(
+                'route' => '/account/update',
+                'controller' => 'App\\Controller\\Api\\AccountController',
+                'model' => 'App\\Model\\Account',
+                'action' => 'actionUpdate'
+            ),
+            'searchAccount' => array(
+                'route' => '/account/search',
+                'controller' => 'App\\Controller\\Api\\AccountController',
+                'model' => 'App\\Model\\Account',
+                'action' => 'actionSearch'
+            ),
+            'listUsuario' => array(
+                'route' => '/usuario/list',
+                'controller' => 'App\\Controller\\Api\\UsuarioController',
+                'model' => 'App\\Model\\Usuario',
+                'action' => 'actionList'
+            ),
+            'addUsuario' => array(
+                'route' => '/usuario/add',
+                'controller' => 'App\\Controller\\Api\\UsuarioController',
+                'model' => 'App\\Model\\Usuario',
+                'action' => 'actionAdd'
+            ),
+            'removeUsuario' => array(
+                'route' => '/usuario/remove',
+                'controller' => 'App\\Controller\\Api\\UsuarioController',
+                'model' => 'App\\Model\\Usuario',
+                'action' => 'actionRemove'
+            ),
+            'updateUsuario' => array(
+                'route' => '/usuario/update',
+                'controller' => 'App\\Controller\\Api\\UsuarioController',
+                'model' => 'App\\Model\\Usuario',
+                'action' => 'actionUpdate'
+            ),
+            'searchUsuario' => array(
+                'route' => '/usuario/search',
+                'controller' => 'App\\Controller\\Api\\UsuarioController',
+                'model' => 'App\\Model\\Usuario',
+                'action' => 'actionSearch'
+            ),
+            'listInfo' => array(
+                'route' => '/info/list',
+                'controller' => 'App\\Controller\\Api\\InfoController',
+                'model' => 'App\\Model\\Info',
+                'action' => 'actionList'
+            ),
+            'addInfo' => array(
+                'route' => '/info/add',
+                'controller' => 'App\\Controller\\Api\\InfoController',
+                'model' => 'App\\Model\\Info',
+                'action' => 'actionAdd'
+            ),
+            'removeInfo' => array(
+                'route' => '/info/remove',
+                'controller' => 'App\\Controller\\Api\\InfoController',
+                'model' => 'App\\Model\\Info',
+                'action' => 'actionRemove'
+            ),
+            'updateInfo' => array(
+                'route' => '/info/update',
+                'controller' => 'App\\Controller\\Api\\InfoController',
+                'model' => 'App\\Model\\Info',
+                'action' => 'actionUpdate'
+            ),
+            'searchInfo' => array(
+                'route' => '/info/search',
+                'controller' => 'App\\Controller\\Api\\InfoController',
+                'model' => 'App\\Model\\Info',
+                'action' => 'actionSearch'
             ),
         );
 

@@ -20,7 +20,7 @@ class SwaggerController
 
             $openapi = \OpenApi\Generator::scan(["../app/Controller"]);
             header('Content-Type: application/json');
-            exit($openapi->toJson());
+            exit($openapi->toYaml());
             
         } catch (\Exception $e) {
             echo $e->getMessage();
