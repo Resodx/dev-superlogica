@@ -89,4 +89,4 @@ Os testes unitários certificam-se que os modelos e a API estão funcionando cor
 
 ## Swagger
 
-- Para ter acesso a documentação da API, basta acessar a rota: http://localhost/swagger/, copiar o json gerado e colar no [swagger editor](https://editor.swagger.io/)
+- Para ter acesso a documentação da API, basta acessar a rota: http://localhost/swagger, copiar o json gerado e colar no [swagger editor](https://editor.swagger.io/)
